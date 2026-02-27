@@ -1,7 +1,7 @@
 # go-api
 
-Este projeto é uma API REST desenvolvida em Go (Golang), focada em escalabilidade e manutenibilidade.
-A aplicação utiliza uma Arquitetura em Camadas (Clean Architecture) e é totalmente containerizada com Docker, garantindo um ambiente de desenvolvimento e produção consistente.
+Desenvolvi uma API RESTful Go (Golang), focada em escalabilidade e performance.
+A aplicação utiliza uma Arquitetura em Camadas (Clean Architecture) e é totalmente containerizada com Docker, garantindo um ambiente de produção consistente.
 
 🚀 Tecnologias Utilizadas
 
@@ -11,7 +11,7 @@ A aplicação utiliza uma Arquitetura em Camadas (Clean Architecture) e é total
 
     Banco de Dados: PostgreSQL para persistência de dados relacional.
 
-    Containerização: Docker e Docker Compose para orquestração da API e do banco de dados.
+    Containerização: Uso de Docker para o gerenciamento de serviços através de containers.
 
 🏗️ Arquitetura do Projeto
 
@@ -23,7 +23,7 @@ O projeto foi construído seguindo princípios de responsabilidade única, facil
 
     Repository: Camada de infraestrutura que abstrai a comunicação com o PostgreSQL.
 
-    Model: Definições de estruturas de dados e contratos de resposta.
+    Model: Definições de estruturas de dados e resposta.
 
 🛠️ Funcionalidades
 
@@ -37,12 +37,13 @@ A API fornece os seguintes endpoints para gerenciamento de produtos:
 
 🐳 Como Executar com Docker
 
-Para rodar o projeto localmente, você só precisa ter o Docker instalado. Execute os seguintes comandos na raiz do projeto:
+    Certifique-se de ter o Docker instalado e o Docker Desktop rodando.
 
-# Build da imagem 
-docker build -t go-api .
+    1. Subir o Banco de Dados primeiro
+    docker-compose up -d go_db
+    
+    2. Subir a API
+    docker-compose up -d go-app
+    
 
-# Ambiente completo (API + PostgreSQL)
-docker-compose up -d
-
-(A API estará disponível em http://localhost:8000)
+    A API estará disponível em: `http://localhost:8000`
